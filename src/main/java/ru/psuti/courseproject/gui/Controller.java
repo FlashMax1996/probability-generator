@@ -23,6 +23,7 @@ public class Controller {
     private static final String NORMAL_DISTRIBUTION = "Нормальное распределение";
     //СЮДА ДОБАВИТЬ НАЗВАНИЕ СВОЕГО РАСПРЕДЛЕНИЯ
     private static final String EXPONENTIAL_DISTRIBUTION = "Экспоненциальное распределение";
+    private static final String ERLANGA_DISTRIBUTION = "Распределение Эрланга";
 
     @FXML
     private Button okButton;
@@ -56,7 +57,8 @@ public class Controller {
                 GAMMA_DISTRIBUTION,
                 NORMAL_DISTRIBUTION,
                 // ПОТОМ ДОБАВИТЬ НАЗВАНИЕ СВОЕГО РАСПРЕДЕЛЕНИЯ СЮДА
-                EXPONENTIAL_DISTRIBUTION
+                EXPONENTIAL_DISTRIBUTION,
+                ERLANGA_DISTRIBUTION
         );
 
 
@@ -94,6 +96,11 @@ public class Controller {
                     NormalDistributionGenerator normalDistributionGenerator = new NormalDistributionGenerator();
                     setupHistogram(normalDistributionGenerator);
                     updateTable(normalDistributionGenerator);
+                    break;
+                case ERLANGA_DISTRIBUTION:
+                    GammaDistributionGenerator erlangaDistributionGenerator = new GammaDistributionGenerator();
+                    setupHistogram(erlangaDistributionGenerator);
+                    updateTable(erlangaDistributionGenerator);
                     break;
                 default:
                     break;
